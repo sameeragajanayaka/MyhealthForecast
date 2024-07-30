@@ -2,7 +2,7 @@ import os
 import io
 import matplotlib
 matplotlib.use('Agg')
-from flask import Flask,request
+from flask import Flask,request,send_file
 import requests
 import numpy as np
 import pandas as pd

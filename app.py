@@ -171,9 +171,13 @@ def get():
     plt.xticks(rotation=90)
     plt.tight_layout()
     # plt.show()
-    plot_file_path = 'graphimage/calorie_plot_'+csv_id+'.png'
-    plt.savefig(plot_file_path)
-    return str(plot_caloriesp)
+    img = io.BytesIO()
+    plt.savefig(img, format='png')
+    img.seek(0)
+
+    # Send the plot as a response
+    return send_file(img, mimetype='image/png', as_attachment=True, download_name='daily_calorie_plot.png')
+
 
 
 # Press the green button in the gutter to run the script.

@@ -72,8 +72,8 @@ def get():
             Y.append(data[i + time_step + prediction_horizon - 1])
         return np.array(X), np.array(Y)
 
-    time_step = 6  # Number of previous time steps to consider
-    prediction_horizon = 6  # Number of steps ahead to predict
+    time_step = 10  # Number of previous time steps to consider
+    prediction_horizon = 2  # Number of steps ahead to predict
     X, Y = create_dataset(calories_normalized, time_step, prediction_horizon)
 
     # Convert to PyTorch tensors
